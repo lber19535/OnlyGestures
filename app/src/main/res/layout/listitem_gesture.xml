@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/gesture_list_item_padding">
+
+        <TextView
+            android:id="@+id/gesture_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="name"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/gesture_list_item_text_size" />
+
+        <TextView
+            android:id="@+id/gesture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@+id/gesture_name"
+            android:text="gesture"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/gesture_list_item_text_size" />
+
+        <CheckBox
+            android:id="@+id/gesture_enable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+</layout>
