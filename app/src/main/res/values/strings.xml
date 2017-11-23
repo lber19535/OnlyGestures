@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">OnlyGestures</string>
     <string name="gesture_switch_tips">Enable Gestures</string>
+
+    <string-array name="gestures_list">
+        <item>Top</item>
+        <item>Bottom</item>
+        <item>Left</item>
+        <item>Right</item>
+        <item>Lower Right</item>
+        <item>Lower Left</item>
+    </string-array>
 </resources>

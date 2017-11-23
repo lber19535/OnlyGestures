@@ -23,6 +23,7 @@
                 android:textSize="@dimen/gesture_list_item_text_size" />
 
             <Switch
+                android:id="@+id/gesture_switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true" />
