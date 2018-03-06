@@ -3,11 +3,19 @@
     <string name="gesture_switch_tips">Enable Gestures</string>
 
     <string-array name="gestures_list">
-        <item>Top</item>
         <item>Bottom</item>
         <item>Left</item>
         <item>Right</item>
         <item>Lower Right</item>
         <item>Lower Left</item>
     </string-array>
+
+    <string-array name="gestures_list_pref_keys">
+        <item>key_bottom</item>
+        <item>key_left</item>
+        <item>key_right</item>
+        <item>key_lower_right</item>
+        <item>key_lower_left</item>
+    </string-array>
+
 </resources>

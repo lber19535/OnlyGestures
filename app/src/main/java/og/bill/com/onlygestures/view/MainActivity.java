@@ -1,6 +1,5 @@
-package og.bill.com.onlygestures;
+package og.bill.com.onlygestures.view;
 
-import android.app.WallpaperManager;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
@@ -8,13 +7,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.inputmethod.InputMethodInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 
-import java.util.List;
-
+import og.bill.com.onlygestures.App;
+import og.bill.com.onlygestures.R;
 import og.bill.com.onlygestures.databinding.ActivityMainBinding;
+import og.bill.com.onlygestures.model.LocalPreference;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
+        binding.gestureSwitch.setChecked(Settings.canDrawOverlays(this));
+
         binding.gestureSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.click.setOnClickListener((v) -> {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        });
 
     }
 
@@ -61,9 +65,11 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQUEST_CODE) {
             if (Settings.canDrawOverlays(this)) {
                 Log.d(TAG, "Overlays permission was granted");
+                LocalPreference.setGestureOpen(this, true);
                 App app = (App) getApplication();
                 app.bindGestureService();
             } else {
+                LocalPreference.setGestureOpen(this, false);
                 binding.gestureSwitch.setChecked(false);
             }
         }

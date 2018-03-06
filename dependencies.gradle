@@ -1,0 +1,34 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+
+    //Libraries
+    daggerVersion = '2.+'
+    recyclerViewVersion = '26.+'
+    appcompatVersion = '26.+'
+    rxJavaVersion = '2.+'
+    rxAndroidVersion = '2.+'
+
+    // Test Libraries
+    junitVersion = "4.12"
+    androidTestEspresso = "3.0.1"
+    androidTestRunnerVersion = "1.0.1"
+
+    allDependencies = [
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger               : "com.google.dagger:dagger:${daggerVersion}",
+            rxJava               : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+            recylerview          : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            appcompat_v7         : "com.android.support:appcompat-v7:${appcompatVersion}",
+
+            // Test Libraries
+            junit                : "junit:junit:${junitVersion}",
+            android_test_runner  : "com.android.support.test:runner:${androidTestRunnerVersion}",
+            android_test_espresso: "com.android.support.test.espresso:espresso-core:${androidTestEspresso}"
+    ]
+}

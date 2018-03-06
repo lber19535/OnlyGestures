@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
 
+import og.bill.com.onlygestures.model.LocalPreference;
 import og.bill.com.onlygestures.service.GesturesBackendService;
 
 /**
@@ -21,7 +22,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (Settings.canDrawOverlays(this)){
+        if (LocalPreference.isGestureOpen(this) && Settings.canDrawOverlays(this)) {
             bindGestureService();
         }
 

@@ -6,7 +6,6 @@
     <Button
         android:layout_width="15dp"
         android:layout_height="35dp"
-
-        android:background="@android:color/transparent" />
+        android:background="@android:color/holo_red_dark" />
 
 </FrameLayout>

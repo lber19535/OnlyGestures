@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: '../dependencies.gradle'
 
 android {
     compileSdkVersion 26
@@ -27,16 +28,24 @@ android {
 }
 
 dependencies {
+
+    def appDependencies = rootProject.ext.allDependencies
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
-    compile 'com.android.support:recyclerview-v7:26.+'
-    compile 'com.android.support.constraint:constraint-layout:1.+'
-    implementation "android.arch.lifecycle:runtime:1.+"
-    implementation "android.arch.lifecycle:common-java8:1.+"
-    implementation "android.arch.lifecycle:extensions:1.+"
-    annotationProcessor "android.arch.lifecycle:compiler:1.+"
-    testCompile 'junit:junit:4.12'
+
+    implementation appDependencies.recylerview
+    implementation appDependencies.appcompat_v7
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.dagger
+    annotationProcessor appDependencies.daggerCompiler
+
+    testImplementation appDependencies.junit
+
+    compile project(path: ':domain')
+    compile project(path: ':data')
 }
